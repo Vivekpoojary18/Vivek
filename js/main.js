@@ -128,10 +128,10 @@ function initTypewriter() {
   if (!target) return;
 
   const roles = [
-    "Data Science & Analytics Specialist",
-    "Full Stack Web Developer",
-    "Machine Learning Engineer",
-    "Python Developer"
+    "Production RAG & AI Engineering",
+    "Data Science & Predictive Modeling",
+    "Full Stack Systems (FastAPI / React)",
+    "3NF Database & Cloud Architectures"
   ];
 
   let roleIndex = 0;
@@ -145,11 +145,11 @@ function initTypewriter() {
     if (isDeleting) {
       target.textContent = currentRole.substring(0, charIndex - 1);
       charIndex--;
-      typeSpeed = 40;
+      typeSpeed = 35;
     } else {
       target.textContent = currentRole.substring(0, charIndex + 1);
       charIndex++;
-      typeSpeed = 90;
+      typeSpeed = 80;
     }
 
     if (!isDeleting && charIndex === currentRole.length) {

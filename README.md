@@ -1,40 +1,42 @@
 # Vivek J Poojary — Portfolio & Profile Web Application
 
-An ultra-professional, modern single-page portfolio application engineered for **Vivek J Poojary** (Data Science, Machine Learning & Full Stack Web Developer), deployed on [Vercel](https://vivek-three-omega.vercel.app).
+An ultra-professional, executive-grade portfolio application engineered for **Vivek J Poojary** (IBM Certified Data Science Practitioner, AI/ML & Full Stack Engineer), deployed on [Vercel](https://vivek-three-omega.vercel.app).
 
 🔗 **Live Site:** [vivek-three-omega.vercel.app](https://vivek-three-omega.vercel.app)
 
 ---
 
-## ✨ Highlights & Features
+## ✨ Features & Highlights
 
-- **Dark Glassmorphic UI:** Deep Midnight dark mode palette (`#060913`) with subtle backdrop blurring, radial neon glow accents, and interactive hover light effects.
-- **Interactive Particle Canvas Network:** HTML5 canvas rendering a responsive particle mesh with mouse repulsion parallax.
-- **Dynamic Role Typewriter:** Animated cycling hero title highlighting key roles (Data Science & Analytics, Full Stack Web Dev, Machine Learning, Python Engineer).
-- **Skill Filter Matrix:** Filter technical skill cards by category (*Data Science & AI*, *Web Development*, *Languages & Tools*) with animated progress bars.
-- **Interactive Project Showcase Grid:** Card gallery with category filter tabs and interactive details popups.
-- **Career & Education Timeline:** Milestone vertical timeline.
-- **One-Click Contact Hub:** Instant copy-to-clipboard functionality for Email (`vivekjpoojary@gmail.com`) and Phone (`+91 82173 67683`) with floating toast feedback.
-- **Vercel Optimized (`vercel.json`):** Clean routing, security headers, and asset caching rules.
+- **Dark Glassmorphic UI System:** Deep Obsidian dark theme (`#060913`) with subtle backdrop blurring, radial neon glow accents, and responsive card layouts.
+- **Interactive Particle Canvas Network:** Real-time HTML5 canvas rendering a responsive particle mesh with mouse repulsion physics.
+- **Dynamic Typewriter Title:** Cycles through specialized roles (*Production RAG & AI Engineering*, *Data Science & Predictive Modeling*, *Full Stack Systems*, *3NF Database & Cloud Architectures*).
+- **Resume-Tailored Projects:**
+  - **DocMind AI:** Production RAG Document Intelligence Platform (FastAPI, React/TypeScript, FAISS, Groq LLM, JWT Auth, 33/33 CI Tests Passing).
+  - **PlayPoint:** Sports Venue Booking & Analytics Platform (React.js, Django REST Framework, SQLite 3NF, Linear Regression peak demand prediction).
+  - **SpaceX Falcon 9 Landing Prediction:** IBM Data Science Capstone (Python, Scikit-learn, 83.3% accuracy Decision Tree, Folium maps).
+- **Interactive Skill Matrix:** Filter technical skills across *AI/RAG & ML*, *Web & APIs*, and *Databases & Tools* with animated progress bars.
+- **Education & Credentials:** Highlights BCA degree (CGPA 8.08 / 10), IBM Data Science Professional Certificate, and Deloitte Technology Virtual Program.
+- **National Athlete Achievement:** Featured badge for Wushu & Kung Fu Bronze Medalist (16th National Kung-Fu Championship).
+- **One-Click Contact Hub:** Instant copy-to-clipboard for Email (`vivekjpoojary@gmail.com`) and Phone (`+91 82173 67683`) with toast notifications.
+- **Vercel Deployment Optimized (`vercel.json`):** Configured with security headers, clean URLs, and asset caching rules.
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-- **HTML5:** Semantic document structure & accessibility ARIA roles
-- **CSS3:** Custom CSS Properties (Variables), Flexbox, CSS Grid, Glassmorphic backdrop filters, and custom keyframes
-- **Vanilla JavaScript (ES6+):** IntersectionObserver, Canvas API, Event Delegation, async clipboard API, and toast notification engine
-- **Typography:** Google Fonts (`Plus Jakarta Sans`, `Inter`, `JetBrains Mono`)
-- **Icons:** Bootstrap Icons CDN
+- **Frontend:** HTML5, CSS3 (Glassmorphism, CSS Custom Properties, Flexbox & Grid), Vanilla JavaScript (ES6+)
+- **Icons & Fonts:** Bootstrap Icons, Google Fonts (`Plus Jakarta Sans`, `Inter`, `JetBrains Mono`)
+- **Backend & AI Concepts Featured:** FastAPI, React.js, TypeScript, Django REST Framework, FAISS Vector Search, Scikit-learn, PostgreSQL/MySQL/SQLite (3NF), GitHub Actions CI/CD
 
 ---
 
 ## 📂 Project Structure
 
 ```
-├── index.html       # Main HTML5 entry document
+├── index.html       # Single-page application entry point
 ├── css/
-│   └── style.css    # Complete design system & responsive layout styles
+│   └── style.css    # Modern glassmorphism styling & animations
 ├── js/
 │   └── main.js      # Particle canvas, typewriter, filter engines & modals
 ├── vercel.json      # Vercel deployment configuration
@@ -43,33 +45,16 @@ An ultra-professional, modern single-page portfolio application engineered for *
 
 ---
 
-## 🚀 Running Locally
+## 🚀 Pushing Updates to Vercel
 
-1. Clone or navigate to your local repository directory:
-   ```bash
-   cd Vivek
-   ```
-
-2. Start a local HTTP server:
-   ```bash
-   python3 -m http.server 8000
-   ```
-
-3. Open `http://localhost:8000` in your web browser.
-
----
-
-## 📤 Deploying Updates to Vercel
-
-Simply commit and push your changes to the `main` branch of your GitHub repository [`vivekjpoojary/Vivek`](https://github.com/vivekjpoojary/Vivek):
+To deploy these updates to your live site, run:
 
 ```bash
+cd /Users/vivekjpoojary/.gemini/antigravity-ide/scratch/Vivek
 git add .
-git commit -m "Upgrade portfolio UI with modern glassmorphism & interactive components"
+git commit -m "Update portfolio with official resume projects, skills, education, and credentials"
 git push origin main
 ```
-
-Vercel will automatically detect the push and deploy the updated application to your live URL [`https://vivek-three-omega.vercel.app`](https://vivek-three-omega.vercel.app)!
 
 ---
 
