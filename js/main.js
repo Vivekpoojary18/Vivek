@@ -281,11 +281,18 @@ function initProjectModal() {
 }
 
 /* ==========================================================================
-   7. CONTACT FORM DIRECT EMAIL DELIVERY VIA FORMSUBMIT
+   7. CONTACT FORM (FAILSAFE FORMSUBMIT WITH AJAX + HTML POST FALLBACK)
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
+
+  // Check URL query string for success redirect Toast
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('message') === 'sent') {
+    showToast('Your message was sent successfully to vivekjpoojary@gmail.com!');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -295,30 +302,38 @@ function initContactForm() {
     btn.disabled = true;
     btn.innerHTML = `<i class="bi bi-hourglass-split"></i> Sending Email...`;
 
-    const formData = new FormData(form);
+    const name = document.getElementById('user_name').value.trim();
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('user_message').value.trim();
 
+    // FormSubmit AJAX call with JSON body
     fetch('https://formsubmit.co/ajax/vivekjpoojary@gmail.com', {
       method: 'POST',
-      body: formData,
       headers: {
+        'Content-Type': 'application/json',
         'Accept': 'application/json'
-      }
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+        _subject: `New Portfolio Message from ${name}`
+      })
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error('FormSubmit AJAX returned non-200 status');
+      return response.json();
+    })
     .then(data => {
       showToast('Message sent! Check vivekjpoojary@gmail.com inbox.');
       form.reset();
-    })
-    .catch(error => {
-      showToast('Opening mail client fallback...');
-      const name = form.name.value;
-      const email = form.email.value;
-      const message = form.message.value;
-      window.location.href = `mailto:vivekjpoojary@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    })
-    .finally(() => {
       btn.disabled = false;
       btn.innerHTML = originalText;
+    })
+    .catch(error => {
+      console.warn('FormSubmit AJAX blocked or failed, submitting HTML POST fallback...', error);
+      // Failsafe: submit form normally via HTML POST to FormSubmit
+      form.submit();
     });
   });
 }

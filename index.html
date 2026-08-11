@@ -510,7 +510,7 @@
             <h3 class="timeline-role">IBM Data Science Professional Certificate</h3>
             <div class="timeline-company">IBM / Coursera</div>
             <div class="timeline-body">
-              <p>10-course specialisation covering Python, SQL, data visualisation, and machine learning, capped by an applied capstone spanning the full data science lifecycle.</p>
+              <p>10-course specialisation covering Python, SQL, data visualisation, and machine learning, capped by an applied capstone project spanning the full data science lifecycle.</p>
             </div>
           </div>
         </div>
@@ -588,10 +588,11 @@
           </div>
         </div>
 
-        <!-- Contact Form (Direct Email Delivery via FormSubmit) -->
+        <!-- Contact Form (Standard HTML POST to FormSubmit with fallback) -->
         <div class="glass-card contact-form-card">
           <form id="contact-form" action="https://formsubmit.co/vivekjpoojary@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New Portfolio Message for Vivek J Poojary">
+            <input type="hidden" name="_next" value="https://vivek-three-omega.vercel.app?message=sent">
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry for Vivek J Poojary">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             
