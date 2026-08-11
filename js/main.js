@@ -1,52 +1,55 @@
 /* ==========================================================================
-   VIVEK J POOJARY PORTFOLIO INTERACTION LOGIC
+   VIVEK J POOJARY - INTERACTIVE CLIENT ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initParticleCanvas();
+  initParticleNetwork();
   initTypewriter();
-  initNavbar();
-  initScrollAnimations();
-  initSkillsFilter();
-  initProjectsFilter();
-  initProjectModals();
+  initScrollEffects();
+  initSkillFilters();
+  initProjectFilters();
+  initProjectModal();
   initContactForm();
 });
 
-/* --------------------------------------------------------------------------
-   1. PARTICLE CANVAS NETWORK (UNIFIED CYAN / INDIGO PALETTE)
-   -------------------------------------------------------------------------- */
-function initParticleCanvas() {
+/* ==========================================================================
+   1. 60FPS HTML5 CANVAS PARTICLE NETWORK ENGINE
+   ========================================================================== */
+function initParticleNetwork() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  let width, height;
-  let particles = [];
-  let mouse = { x: null, y: null, radius: 150 };
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
 
-  function resize() {
+  window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-    createParticles();
-  }
+  });
 
-  window.addEventListener('resize', resize);
+  const mouse = { x: null, y: null, radius: 140 };
+
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.x;
     mouse.y = e.y;
   });
 
+  window.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  const count = Math.min(Math.floor((width * height) / 14000), 75);
+  const particles = [];
+
   class Particle {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.size = Math.random() * 2.2 + 1;
-      this.baseX = this.x;
-      this.baseY = this.y;
-      this.vx = (Math.random() - 0.5) * 0.7;
-      this.vy = (Math.random() - 0.5) * 0.7;
-      this.alpha = Math.random() * 0.5 + 0.25;
+      this.vx = (Math.random() - 0.5) * 0.45;
+      this.vy = (Math.random() - 0.5) * 0.45;
+      this.radius = Math.random() * 1.8 + 0.8;
     }
 
     update() {
@@ -56,91 +59,78 @@ function initParticleCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      // Mouse repulsion physics
-      if (mouse.x && mouse.y) {
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < mouse.radius) {
-          let force = (mouse.radius - distance) / mouse.radius;
-          let directionX = dx / distance;
-          let directionY = dy / distance;
-          this.x -= directionX * force * 3.5;
-          this.y -= directionY * force * 3.5;
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const angle = Math.atan2(dy, dx);
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.x -= Math.cos(angle) * force * 3;
+          this.y -= Math.sin(angle) * force * 3;
         }
       }
     }
 
     draw() {
-      ctx.fillStyle = `rgba(0, 240, 255, ${this.alpha})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = 'rgba(0, 240, 255, 0.4)';
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 240, 255, 0.7)';
       ctx.fill();
-      ctx.shadowBlur = 0;
     }
   }
 
-  function createParticles() {
-    particles = [];
-    const particleCount = Math.floor((width * height) / 11000);
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
   }
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Connecting lines with cyan glow
     for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        let dx = particles[i].x - particles[j].x;
-        let dy = particles[i].y - particles[j].y;
-        let dist = Math.sqrt(dx * dx + dy * dy);
+      particles[i].update();
+      particles[i].draw();
 
-        if (dist < 120) {
-          ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.9;
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 130) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 240, 255, ${0.18 * (1 - dist / 130)})`;
+          ctx.lineWidth = 0.75;
           ctx.stroke();
         }
       }
     }
 
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-
     requestAnimationFrame(animate);
   }
 
-  resize();
   animate();
 }
 
-/* --------------------------------------------------------------------------
-   2. TYPEWRITER EFFECT
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   2. DYNAMIC TYPEWRITER EFFECT
+   ========================================================================== */
 function initTypewriter() {
   const target = document.querySelector('.typed-text');
   if (!target) return;
 
   const roles = [
-    "DocMind AI & RAG Engineering",
-    "PlayPoint Venue Analytics System",
-    "Immortals Team Web Platform",
-    "Predictive ML & Data Science"
+    'RAG & GenAI Platforms',
+    'Predictive Machine Learning',
+    'Full Stack Web Engineering',
+    '3NF Relational Databases',
+    'Automated CI/CD Pipelines'
   ];
 
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typeSpeed = 80;
 
   function type() {
     const currentRole = roles[roleIndex];
@@ -148,16 +138,16 @@ function initTypewriter() {
     if (isDeleting) {
       target.textContent = currentRole.substring(0, charIndex - 1);
       charIndex--;
-      typeSpeed = 35;
     } else {
       target.textContent = currentRole.substring(0, charIndex + 1);
       charIndex++;
-      typeSpeed = 80;
     }
 
+    let typeSpeed = isDeleting ? 40 : 80;
+
     if (!isDeleting && charIndex === currentRole.length) {
+      typeSpeed = 2200;
       isDeleting = true;
-      typeSpeed = 1800; // Pause at end
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
@@ -170,14 +160,14 @@ function initTypewriter() {
   type();
 }
 
-/* --------------------------------------------------------------------------
-   3. NAVBAR & MOBILE DRAWER LOGIC
-   -------------------------------------------------------------------------- */
-function initNavbar() {
-  const navbar = document.querySelector('header.navbar');
+/* ==========================================================================
+   3. SCROLL REVEAL & NAVBAR EFFECT
+   ========================================================================== */
+function initScrollEffects() {
+  const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.hamburger');
-  const drawer = document.querySelector('.mobile-drawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileDrawer = document.querySelector('.mobile-drawer');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -187,74 +177,39 @@ function initNavbar() {
     }
   });
 
-  if (hamburger && drawer) {
+  if (hamburger) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
-      drawer.classList.toggle('active');
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        drawer.classList.remove('active');
-      });
+      mobileDrawer.classList.toggle('active');
     });
   }
-}
 
-/* --------------------------------------------------------------------------
-   4. SCROLL REVEAL ANIMATIONS
-   -------------------------------------------------------------------------- */
-function initScrollAnimations() {
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-
-        // Animate Skill Progress Bars
-        if (entry.target.classList.contains('skills-grid')) {
-          const bars = entry.target.querySelectorAll('.progress-bar-fill');
-          bars.forEach(bar => {
-            const val = bar.getAttribute('data-value');
-            bar.style.width = val + '%';
-          });
-        }
-      }
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileDrawer.classList.remove('active');
     });
-  }, observerOptions);
-
-  document.querySelectorAll('.glass-card, .section-header, .skills-grid, .timeline-item').forEach(el => {
-    observer.observe(el);
   });
 }
 
-/* --------------------------------------------------------------------------
-   5. SKILLS FILTERING
-   -------------------------------------------------------------------------- */
-function initSkillsFilter() {
-  const buttons = document.querySelectorAll('.skills-filter .filter-btn');
-  const cards = document.querySelectorAll('.skill-card');
+/* ==========================================================================
+   4. SKILL COMPETENCY FILTER LOGIC
+   ========================================================================== */
+function initSkillFilters() {
+  const filterBtns = document.querySelectorAll('#skills .filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
 
-  buttons.forEach(btn => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
 
-      cards.forEach(card => {
+      skillCards.forEach((card) => {
         const cat = card.getAttribute('data-category');
         if (filter === 'all' || cat === filter) {
           card.style.display = 'flex';
-          setTimeout(() => {
-            const bar = card.querySelector('.progress-bar-fill');
-            if (bar) bar.style.width = bar.getAttribute('data-value') + '%';
-          }, 50);
         } else {
           card.style.display = 'none';
         }
@@ -263,93 +218,98 @@ function initSkillsFilter() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   6. PROJECTS FILTERING
-   -------------------------------------------------------------------------- */
-function initProjectsFilter() {
-  const buttons = document.querySelectorAll('.projects-filter .filter-btn');
-  const cards = document.querySelectorAll('.project-card-wrapper');
+/* ==========================================================================
+   5. PROJECT FILTER LOGIC
+   ========================================================================== */
+function initProjectFilters() {
+  const filterBtns = document.querySelectorAll('.projects-filter .filter-btn');
+  const projectWrappers = document.querySelectorAll('.project-card-wrapper');
 
-  buttons.forEach(btn => {
+  filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
 
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
+      projectWrappers.forEach((wrapper) => {
+        const cat = wrapper.getAttribute('data-category');
         if (filter === 'all' || cat === filter) {
-          card.style.display = 'block';
+          wrapper.style.display = 'block';
         } else {
-          card.style.display = 'none';
+          wrapper.style.display = 'none';
         }
       });
     });
   });
 }
 
-/* --------------------------------------------------------------------------
-   7. PROJECT MODAL POPUP
-   -------------------------------------------------------------------------- */
-function initProjectModals() {
+/* ==========================================================================
+   6. PROJECT MODAL POPUP
+   ========================================================================== */
+function initProjectModal() {
   const modal = document.getElementById('project-modal');
+  const closeBtn = document.querySelector('.modal-close');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalTags = document.getElementById('modal-tags');
+  const modalGithubLink = document.getElementById('modal-github-link');
+
   if (!modal) return;
 
-  const closeBtn = modal.querySelector('.modal-close');
   const viewBtns = document.querySelectorAll('.view-project-btn');
 
-  viewBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const title = btn.getAttribute('data-title');
-      const desc = btn.getAttribute('data-desc');
-      const tags = btn.getAttribute('data-tags');
-      const link = btn.getAttribute('data-link');
-
-      document.getElementById('modal-title').textContent = title;
-      document.getElementById('modal-desc').textContent = desc;
-      document.getElementById('modal-tags').textContent = tags;
-      document.getElementById('modal-github-link').href = link || 'https://github.com/vivekjpoojary';
-
+  viewBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modalTitle.textContent = btn.getAttribute('data-title');
+      modalDesc.textContent = btn.getAttribute('data-desc');
+      modalTags.textContent = btn.getAttribute('data-tags');
+      modalGithubLink.href = btn.getAttribute('data-link');
       modal.classList.add('active');
     });
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-  }
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
 
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('active');
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
   });
 }
 
-/* --------------------------------------------------------------------------
-   8. CONTACT FORM & COPY TO CLIPBOARD
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   7. CONTACT FORM & CLIPBOARD TOAST NOTIFICATIONS
+   ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
+  if (!form) return;
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('Thank you! Your message has been sent successfully.');
-      form.reset();
-    });
-  }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('user_name').value.trim();
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('user_message').value.trim();
+
+    const mailtoUrl = `mailto:vivekjpoojary@gmail.com?subject=Portfolio Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    
+    window.location.href = mailtoUrl;
+
+    showToast(`Thank you ${name}! Opening mail client to send your message.`);
+    form.reset();
+  });
 }
 
-// Global Copy Helper
 function copyToClipboard(text, label) {
   navigator.clipboard.writeText(text).then(() => {
     showToast(`${label} copied to clipboard!`);
-  }).catch(err => {
+  }).catch(() => {
     showToast(`Failed to copy ${label}`);
   });
 }
 
-// Toast Helper
 function showToast(message) {
   let container = document.querySelector('.toast-container');
   if (!container) {
@@ -361,7 +321,6 @@ function showToast(message) {
   const toast = document.createElement('div');
   toast.className = 'toast';
   toast.innerHTML = `<i class="bi bi-check-circle-fill" style="color: var(--accent-cyan);"></i> <span>${message}</span>`;
-
   container.appendChild(toast);
 
   setTimeout(() => {
@@ -369,5 +328,5 @@ function showToast(message) {
     toast.style.transform = 'translateX(100%)';
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
-  }, 3200);
+  }, 3500);
 }
