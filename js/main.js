@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillFilters();
   initProjectFilters();
   initProjectModal();
+  initContactForm();
 });
 
 /* ==========================================================================
@@ -280,8 +281,30 @@ function initProjectModal() {
 }
 
 /* ==========================================================================
-   7. UTILITIES: TOAST & CLIPBOARD
+   7. CONTACT FORM (FAILSAFE DIRECT MAILTO LAUNCHER)
    ========================================================================== */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('user_name').value.trim();
+    const email = document.getElementById('user_email').value.trim();
+    const message = document.getElementById('user_message').value.trim();
+
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const body = encodeURIComponent(`Hi Vivek,\n\nMy name is ${name} (${email}).\n\n${message}\n\nBest regards,\n${name}`);
+
+    showToast('Opening your mail client to send email to vivekjpoojary@gmail.com...');
+
+    setTimeout(() => {
+      window.location.href = `mailto:vivekjpoojary@gmail.com?subject=${subject}&body=${body}`;
+    }, 400);
+  });
+}
+
 function copyToClipboard(text, label) {
   navigator.clipboard.writeText(text).then(() => {
     showToast(`${label} copied to clipboard!`);
