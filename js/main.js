@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. PARTICLE CANVAS NETWORK
+   1. PARTICLE CANVAS NETWORK (UNIFIED CYAN / INDIGO PALETTE)
    -------------------------------------------------------------------------- */
 function initParticleCanvas() {
   const canvas = document.getElementById('bg-canvas');
@@ -23,7 +23,7 @@ function initParticleCanvas() {
 
   let width, height;
   let particles = [];
-  let mouse = { x: null, y: null, radius: 140 };
+  let mouse = { x: null, y: null, radius: 150 };
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -41,12 +41,12 @@ function initParticleCanvas() {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.size = Math.random() * 2 + 1;
+      this.size = Math.random() * 2.2 + 1;
       this.baseX = this.x;
       this.baseY = this.y;
-      this.vx = (Math.random() - 0.5) * 0.6;
-      this.vy = (Math.random() - 0.5) * 0.6;
-      this.alpha = Math.random() * 0.5 + 0.2;
+      this.vx = (Math.random() - 0.5) * 0.7;
+      this.vy = (Math.random() - 0.5) * 0.7;
+      this.alpha = Math.random() * 0.5 + 0.25;
     }
 
     update() {
@@ -56,7 +56,7 @@ function initParticleCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      // Mouse repulsion
+      // Mouse repulsion physics
       if (mouse.x && mouse.y) {
         let dx = mouse.x - this.x;
         let dy = mouse.y - this.y;
@@ -65,23 +65,26 @@ function initParticleCanvas() {
           let force = (mouse.radius - distance) / mouse.radius;
           let directionX = dx / distance;
           let directionY = dy / distance;
-          this.x -= directionX * force * 3;
-          this.y -= directionY * force * 3;
+          this.x -= directionX * force * 3.5;
+          this.y -= directionY * force * 3.5;
         }
       }
     }
 
     draw() {
-      ctx.fillStyle = `rgba(99, 102, 241, ${this.alpha})`;
+      ctx.fillStyle = `rgba(0, 240, 255, ${this.alpha})`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(0, 240, 255, 0.4)';
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
+      ctx.shadowBlur = 0;
     }
   }
 
   function createParticles() {
     particles = [];
-    const particleCount = Math.floor((width * height) / 12000);
+    const particleCount = Math.floor((width * height) / 11000);
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
@@ -90,16 +93,16 @@ function initParticleCanvas() {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // Draw connecting lines
+    // Connecting lines with cyan glow
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         let dx = particles[i].x - particles[j].x;
         let dy = particles[i].y - particles[j].y;
         let dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 110) {
-          ctx.strokeStyle = `rgba(6, 182, 212, ${0.12 * (1 - dist / 110)})`;
-          ctx.lineWidth = 0.8;
+        if (dist < 120) {
+          ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 120)})`;
+          ctx.lineWidth = 0.9;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -128,10 +131,10 @@ function initTypewriter() {
   if (!target) return;
 
   const roles = [
-    "Production RAG & AI Engineering",
-    "Data Science & Predictive Modeling",
-    "Full Stack Systems (FastAPI / React)",
-    "3NF Database & Cloud Architectures"
+    "DocMind AI & RAG Engineering",
+    "PlayPoint Venue Analytics System",
+    "Immortals Team Web Platform",
+    "Predictive ML & Data Science"
   ];
 
   let roleIndex = 0;
@@ -213,7 +216,7 @@ function initScrollAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
 
-        // Animate Skill Progress Bars if inside skills section
+        // Animate Skill Progress Bars
         if (entry.target.classList.contains('skills-grid')) {
           const bars = entry.target.querySelectorAll('.progress-bar-fill');
           bars.forEach(bar => {
