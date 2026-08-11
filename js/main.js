@@ -281,7 +281,7 @@ function initProjectModal() {
 }
 
 /* ==========================================================================
-   7. CONTACT FORM & CLIPBOARD TOAST NOTIFICATIONS
+   7. CONTACT FORM DIRECT EMAIL DELIVERY VIA FORMSUBMIT
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -289,16 +289,37 @@ function initContactForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = document.getElementById('user_name').value.trim();
-    const email = document.getElementById('user_email').value.trim();
-    const message = document.getElementById('user_message').value.trim();
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
 
-    const mailtoUrl = `mailto:vivekjpoojary@gmail.com?subject=Portfolio Enquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-    
-    window.location.href = mailtoUrl;
+    btn.disabled = true;
+    btn.innerHTML = `<i class="bi bi-hourglass-split"></i> Sending Email...`;
 
-    showToast(`Thank you ${name}! Opening mail client to send your message.`);
-    form.reset();
+    const formData = new FormData(form);
+
+    fetch('https://formsubmit.co/ajax/vivekjpoojary@gmail.com', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      showToast('Message sent! Check vivekjpoojary@gmail.com inbox.');
+      form.reset();
+    })
+    .catch(error => {
+      showToast('Opening mail client fallback...');
+      const name = form.name.value;
+      const email = form.email.value;
+      const message = form.message.value;
+      window.location.href = `mailto:vivekjpoojary@gmail.com?subject=Portfolio Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    });
   });
 }
 
@@ -328,5 +349,5 @@ function showToast(message) {
     toast.style.transform = 'translateX(100%)';
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
-  }, 3500);
+  }, 3800);
 }

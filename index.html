@@ -77,7 +77,7 @@
     </ul>
     <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.75rem;">
       <a href="Vivek_J_Poojary_Resume.pdf" download="Vivek_J_Poojary_Resume.pdf" class="btn btn-outline" style="width: 100%;">
-        <i class="bi bi-file-earmark-arrow-down-fill"></i> Download Resume PDF
+        <i class="bi bi-file-earmark-arrow-down-fill"></i> Download Official Resume PDF
       </a>
       <a href="mailto:vivekjpoojary@gmail.com" class="btn btn-primary" style="width: 100%;">
         <i class="bi bi-envelope-fill"></i> Email Me
@@ -513,33 +513,7 @@
           </div>
         </div>
 
-        <!-- Cert 1: GenAI Studio -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="glass-card timeline-card">
-            <span class="timeline-date">Jul 2026</span>
-            <h3 class="timeline-role">Introduction to Generative AI Studio</h3>
-            <div class="timeline-company">Google Cloud / Coursera</div>
-            <div class="timeline-body">
-              <p>Specialized training on prototyping, tuning, and deploying Generative AI models, prompt engineering patterns, and foundation models in AI applications.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 2: Data Formats -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="glass-card timeline-card">
-            <span class="timeline-date">Jul 2026</span>
-            <h3 class="timeline-role">Data Formats for Data Engineering and AI</h3>
-            <div class="timeline-company">Edvane</div>
-            <div class="timeline-body">
-              <p>Advanced practical certification covering JSON, Parquet, Avro, Protocol Buffers, and efficient schema serialization pipelines for high-throughput AI and data engineering workloads.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 3: IBM Data Science -->
+        <!-- Cert 1: IBM Data Science -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="glass-card timeline-card">
@@ -552,7 +526,7 @@
           </div>
         </div>
 
-        <!-- Cert 4: Deloitte -->
+        <!-- Cert 2: Deloitte -->
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="glass-card timeline-card">
@@ -568,7 +542,7 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section with Active FormSubmit Integration -->
   <section id="contact">
     <div class="container">
       <div class="section-header">
@@ -625,20 +599,24 @@
           </div>
         </div>
 
-        <!-- Contact Form -->
+        <!-- Contact Form (Direct Email Delivery via FormSubmit) -->
         <div class="glass-card contact-form-card">
-          <form id="contact-form">
+          <form id="contact-form" action="https://formsubmit.co/vivekjpoojary@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Portfolio Message for Vivek J Poojary">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            
             <div class="form-group">
               <label class="form-label" for="user_name">Your Name</label>
-              <input type="text" id="user_name" class="form-input" placeholder="e.g. Hiring Manager / Recruiter" required>
+              <input type="text" id="user_name" name="name" class="form-input" placeholder="e.g. Hiring Manager / Recruiter" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="user_email">Your Email</label>
-              <input type="email" id="user_email" class="form-input" placeholder="e.g. recruiter@company.com" required>
+              <input type="email" id="user_email" name="email" class="form-input" placeholder="e.g. recruiter@company.com" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="user_message">Message</label>
-              <textarea id="user_message" class="form-textarea" placeholder="Discuss opportunities, roles, or project collaborations..." required></textarea>
+              <textarea id="user_message" name="message" class="form-textarea" placeholder="Discuss opportunities, roles, or project collaborations..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">
               <i class="bi bi-send-fill"></i> Send Message
