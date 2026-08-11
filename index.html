@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Vivek J Poojary — Data Science & Full Stack Developer Portfolio</title>
+  <meta name="title" content="Vivek J Poojary — Data Science & Full Stack Developer Portfolio">
+  <meta name="description" content="Personal portfolio of Vivek J Poojary. Full Stack Developer, Data Science & Machine Learning Enthusiast. Explore projects, skills, and background.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivek-three-omega.vercel.app">
+  <meta property="og:title" content="Vivek J Poojary — Data Science & Full Stack Developer">
+  <meta property="og:description" content="Personal portfolio website built with modern HTML, CSS, and JS. Single page, dark glassmorphism theme.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Modern Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background Particle Network & Grid Canvas -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="ambient-grid"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-accent">&lt;</span>Vivek<span class="logo-accent">/&gt;</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm hide-mobile">
+          <i class="bi bi-chat-dots"></i> Let's Talk
+        </a>
+        <button class="hamburger" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#about" class="mobile-nav-link">About Me</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Technical Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Featured Projects</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience & Education</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Get In Touch</a></li>
+    </ul>
+    <div style="margin-top: auto;">
+      <a href="mailto:vivekjpoojary@gmail.com" class="btn btn-primary" style="width: 100%;">
+        <i class="bi bi-envelope"></i> Email Me
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span> Open for High-Impact Opportunities
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Vivek J Poojary</span>
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span>I build &nbsp;</span>
+            <span class="typed-text"></span>
+            <span class="cursor"></span>
+          </div>
+
+          <p class="hero-bio">
+            Passionate software engineer & data practitioner turning complex data into actionable insights and constructing ultra-scalable, responsive full-stack applications.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              View Work <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com/vivekjpoojary" target="_blank" class="social-icon" title="GitHub Profile">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/vivekjpoojary" target="_blank" class="social-icon" title="LinkedIn Profile">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:vivekjpoojary@gmail.com" class="social-icon" title="Send Email">
+              <i class="bi bi-envelope-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile / Stats Card -->
+        <div class="hero-avatar-card glass-card">
+          <div class="avatar-glow-wrapper">
+            <div class="avatar-placeholder">
+              <i class="bi bi-code-slash"></i>
+            </div>
+          </div>
+          <h3>Vivek J Poojary</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">Data Science & Full Stack Specialist</p>
+
+          <div class="hero-stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Code Quality</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Background & Passion</span>
+        <h2 class="section-title">Architecting Data & Web Solutions</h2>
+        <p class="section-desc">Combining analytical rigor with high-performance web engineering.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="glass-card about-card-text">
+          <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Who I Am</h3>
+          <p>
+            I am a motivated developer with a dual passion for data analytics and modern web applications. From raw dataset processing and predictive machine learning models to sleek UI components, I build end-to-end applications.
+          </p>
+          <p>
+            My philosophy centers around clean code, intuitive UX design, robust data pipelines, and continuous optimization.
+          </p>
+        </div>
+
+        <div class="about-features">
+          <div class="glass-card feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h4 class="feature-title">Data Analytics & ML</h4>
+            <p class="feature-desc">Transforming unstructured data into insights, predictive models, and intuitive dashboards.</p>
+          </div>
+
+          <div class="glass-card feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-layers-half"></i>
+            </div>
+            <h4 class="feature-title">Full Stack Web Dev</h4>
+            <p class="feature-desc">Creating responsive, fast, and accessible single-page web apps with modern frontend architectures.</p>
+          </div>
+
+          <div class="glass-card feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-terminal"></i>
+            </div>
+            <h4 class="feature-title">Python Ecosystem</h4>
+            <p class="feature-desc">Proficient in Python scripting, automation, Pandas, NumPy, Scikit-Learn, and API backends.</p>
+          </div>
+
+          <div class="glass-card feature-box">
+            <div class="feature-icon">
+              <i class="bi bi-cloud-check"></i>
+            </div>
+            <h4 class="feature-title">Vercel & Cloud Deploy</h4>
+            <p class="feature-desc">Deploying web services with zero friction, CI/CD integrations, and optimized CDN delivery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Technical Expertise</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-desc">A curated set of tools and technologies I use to build robust software.</p>
+      </div>
+
+      <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="datascience">Data Science & AI</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="tools">Languages & Tools</button>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Skill 1 -->
+        <div class="glass-card skill-card" data-category="tools">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-filetype-py skill-icon" style="color: #38bdf8;"></i>
+              <h4 class="skill-name">Python</h4>
+            </div>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="90"></div>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="glass-card skill-card" data-category="datascience">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-bar-chart-line-fill skill-icon" style="color: #f59e0b;"></i>
+              <h4 class="skill-name">Data Science & Pandas</h4>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="85"></div>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="glass-card skill-card" data-category="datascience">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-cpu-fill skill-icon" style="color: #8b5cf6;"></i>
+              <h4 class="skill-name">Machine Learning</h4>
+            </div>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="80"></div>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="glass-card skill-card" data-category="web">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-filetype-html skill-icon" style="color: #f97316;"></i>
+              <h4 class="skill-name">HTML5 & CSS3</h4>
+            </div>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="95"></div>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="glass-card skill-card" data-category="web">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-filetype-js skill-icon" style="color: #eab308;"></i>
+              <h4 class="skill-name">JavaScript ES6+</h4>
+            </div>
+            <span class="skill-percent">88%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="88"></div>
+          </div>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="glass-card skill-card" data-category="tools">
+          <div class="skill-top">
+            <div class="skill-info">
+              <i class="bi bi-database-fill skill-icon" style="color: #06b6d4;"></i>
+              <h4 class="skill-name">SQL & Databases</h4>
+            </div>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" data-value="85"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Portfolio Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Explore recent work spanning data analytics, machine learning, and full stack web tools.</p>
+      </div>
+
+      <div class="skills-filter projects-filter">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="datascience">Data & ML</button>
+        <button class="filter-btn" data-filter="web">Full Stack Web</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card-wrapper" data-category="web">
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <i class="bi bi-folder-fill folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/vivekjpoojary/Vivek" target="_blank" class="project-link-icon" title="View Source">
+                  <i class="bi bi-github"></i>
+                </a>
+                <a href="https://vivek-three-omega.vercel.app" target="_blank" class="project-link-icon" title="Live Site">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Personal Vercel Portfolio</h3>
+              <p class="project-desc">Ultra-responsive, glassmorphic portfolio website showcasing skills, projects, and contact hubs with dynamic ambient animations.</p>
+              <ul class="project-tags">
+                <li class="tag">HTML5</li>
+                <li class="tag">CSS Variables</li>
+                <li class="tag">Vanilla JS</li>
+                <li class="tag">Vercel</li>
+              </ul>
+              <button class="btn btn-outline btn-sm view-project-btn" style="margin-top: 1rem;" 
+                data-title="Personal Vercel Portfolio"
+                data-desc="Single-page application engineered with zero external build frameworks for instant load times and peak Lighthouse performance scores. Features particle mesh animations, IntersectionObserver scroll triggers, and responsive layout across all device types."
+                data-tags="HTML5, CSS3, JavaScript, Canvas API, Glassmorphism, Vercel"
+                data-link="https://github.com/vivekjpoojary/Vivek">
+                Project Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card-wrapper" data-category="datascience">
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <i class="bi bi-graph-up-arrow folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/vivekjpoojary" target="_blank" class="project-link-icon">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Sales Data Analytics & Forecasting</h3>
+              <p class="project-desc">Python-driven analytics engine processing historical sales records to identify revenue trends and seasonal purchase patterns.</p>
+              <ul class="project-tags">
+                <li class="tag">Python</li>
+                <li class="tag">Pandas</li>
+                <li class="tag">Matplotlib</li>
+                <li class="tag">Data Analysis</li>
+              </ul>
+              <button class="btn btn-outline btn-sm view-project-btn" style="margin-top: 1rem;"
+                data-title="Sales Data Analytics & Forecasting"
+                data-desc="End-to-end data pipeline cleaning messy sales data, evaluating KPI aggregates, and visualizing category growth drivers through interactive plotting libraries."
+                data-tags="Python, Pandas, NumPy, Matplotlib, Data Cleaning"
+                data-link="https://github.com/vivekjpoojary">
+                Project Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card-wrapper" data-category="datascience">
+          <div class="glass-card project-card">
+            <div class="project-header">
+              <i class="bi bi-cpu-fill folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/vivekjpoojary" target="_blank" class="project-link-icon">
+                  <i class="bi bi-github"></i>
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">ML Predictive Classification Model</h3>
+              <p class="project-desc">Supervised classification model evaluating customer churn risk factors using Scikit-Learn algorithms and hyperparameter optimization.</p>
+              <ul class="project-tags">
+                <li class="tag">Scikit-Learn</li>
+                <li class="tag">Python</li>
+                <li class="tag">Machine Learning</li>
+              </ul>
+              <button class="btn btn-outline btn-sm view-project-btn" style="margin-top: 1rem;"
+                data-title="ML Predictive Classification Model"
+                data-desc="Trained classification algorithms (Random Forest, Logistic Regression) to accurately predict churn probability, featuring automated metric reports and confusion matrices."
+                data-tags="Scikit-Learn, Feature Engineering, Classification, ROC-AUC"
+                data-link="https://github.com/vivekjpoojary">
+                Project Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Career Journey</span>
+        <h2 class="section-title">Education & Milestones</h2>
+        <p class="section-desc">Academic background and continuous technical growth.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Milestone 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <span class="timeline-date">Present / Ongoing</span>
+            <h3 class="timeline-role">Data Science & Full Stack Specialization</h3>
+            <div class="timeline-company">Self-Driven Projects & Advanced Engineering</div>
+            <div class="timeline-body">
+              <p>Designing full-stack applications, refining machine learning workflows, and publishing projects to GitHub and Vercel cloud platforms.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <span class="timeline-date">Bachelor's Degree</span>
+            <h3 class="timeline-role">Computer Science & Information Tech</h3>
+            <div class="timeline-company">University Degree</div>
+            <div class="timeline-body">
+              <p>Studied core algorithms, data structures, database management systems (DBMS), software development methodologies, and web development fundamentals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2 class="section-title">Contact & Collaboration</h2>
+        <p class="section-desc">Have a question or want to build something great together? Reach out anytime!</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info Cards -->
+        <div class="glass-card contact-info-card">
+          <h3 style="font-size: 1.4rem;">Direct Channels</h3>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="bi bi-envelope-at-fill"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email Address</h4>
+              <a href="mailto:vivekjpoojary@gmail.com" class="contact-value">vivekjpoojary@gmail.com</a>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('vivekjpoojary@gmail.com', 'Email')">
+              <i class="bi bi-copy"></i>
+            </button>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Phone Number</h4>
+              <a href="tel:+918217367683" class="contact-value">+91 82173 67683</a>
+            </div>
+            <button class="copy-btn" onclick="copyToClipboard('+918217367683', 'Phone number')">
+              <i class="bi bi-copy"></i>
+            </button>
+          </div>
+
+          <div class="contact-method">
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <span class="contact-value">India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass-card contact-form-card">
+          <form id="contact-form">
+            <div class="form-group">
+              <label class="form-label" for="user_name">Your Name</label>
+              <input type="text" id="user_name" class="form-input" placeholder="e.g. Alex Smith" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="user_email">Your Email</label>
+              <input type="email" id="user_email" class="form-input" placeholder="e.g. alex@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="user_message">Message</label>
+              <textarea id="user_message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="bi bi-send-fill"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details Modal -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3 id="modal-title" style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-cyan);">Project Details</h3>
+      <p id="modal-desc" style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.7;"></p>
+      <div style="margin-bottom: 1.5rem;">
+        <strong style="color: var(--text-main); display: block; margin-bottom: 0.5rem;">Technologies Used:</strong>
+        <span id="modal-tags" class="mono-font" style="color: #a5b4fc; font-size: 0.9rem;"></span>
+      </div>
+      <a id="modal-github-link" href="#" target="_blank" class="btn btn-primary btn-sm">
+        <i class="bi bi-github"></i> Open Repository
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Vivek J Poojary. Built for high performance on Vercel.</p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
