@@ -218,7 +218,7 @@ section {
 }
 
 /* ==========================================================================
-   HEADER NAVIGATION & TIGHT LOGO
+   HEADER NAVIGATION & LOGO
    ========================================================================== */
 header.navbar {
   position: fixed;
@@ -246,34 +246,28 @@ header.navbar.scrolled {
   justify-content: space-between;
 }
 
-/* Ultra Clean Tight Logo */
+/* Clean Professional Brand Logo */
 .logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0;
-  letter-spacing: -0.04em;
   transition: transform var(--transition-fast);
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: translateY(-1px);
 }
 
-.logo-symbol {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 14px var(--accent-cyan-glow);
-}
-
-.logo-name {
+.logo-text {
   color: var(--text-main);
-  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 100%);
+  background: linear-gradient(135deg, #ffffff 30%, #7dd3fc 70%, #00f0ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 0 1px;
 }
 
 .nav-menu {
