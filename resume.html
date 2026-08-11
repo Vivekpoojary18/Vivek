@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vivek J Poojary — Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 15mm 15mm 15mm 15mm;
+    }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #111827;
+      margin: 0;
+      padding: 0;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+    h1 {
+      font-size: 20pt;
+      margin: 0 0 4px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+    }
+    .contact-info {
+      font-size: 9pt;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    .contact-info a {
+      color: #0284c7;
+      text-decoration: none;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #cbd5e1;
+      margin: 10px 0;
+    }
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0f172a;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: bold;
+      font-size: 10pt;
+      margin-top: 8px;
+    }
+    .item-sub {
+      font-style: italic;
+      color: #475569;
+      font-size: 9pt;
+      margin-bottom: 4px;
+    }
+    ul {
+      margin: 4px 0 8px 0;
+      padding-left: 18px;
+    }
+    li {
+      margin-bottom: 3px;
+      font-size: 9.5pt;
+      color: #334155;
+    }
+    p {
+      margin: 4px 0 8px 0;
+      font-size: 9.5pt;
+      color: #334155;
+    }
+    .skills-list p {
+      margin: 3px 0;
+      font-size: 9.5pt;
+    }
+    .skills-list strong {
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>VIVEK J POOJARY</h1>
+  <div class="contact-info">
+    Mangaluru, Karnataka, India &nbsp;|&nbsp; 
+    <a href="mailto:vivekjpoojary@gmail.com">vivekjpoojary@gmail.com</a> &nbsp;|&nbsp; 
+    +91 82173 67683 &nbsp;|&nbsp; 
+    <a href="https://linkedin.com/in/vivekjpoojary" target="_blank">linkedin.com/in/vivekjpoojary</a> &nbsp;|&nbsp; 
+    <a href="https://github.com/Vivekjpoojary" target="_blank">github.com/Vivekjpoojary</a>
+  </div>
+
+  <hr>
+
+  <div class="section-title">Summary</div>
+  <p>
+    Builds and ships systems that turn raw data into decisions — from a retrieval-augmented AI platform serving page-accurate answers across documents to a demand-forecasting engine that directly shapes real-time resource allocation. Track record centers on closing the gap between prototype and production: 33/33 automated tests passing in CI, an 83.3% predictive accuracy benchmark achieved through systematic model comparison, and normalized data architectures built to eliminate redundancy at scale. IBM-certified Data Science practitioner (BCA, CGPA 8.08) seeking an entry-level Data Analyst, Data Science, or AI/ML Engineering role.
+  </p>
+
+  <hr>
+
+  <div class="section-title">Education</div>
+  <div class="item-header">
+    <span>Bachelor of Computer Applications (BCA)</span>
+    <span>Jun 2023 – May 2026</span>
+  </div>
+  <div class="item-sub">St. Aloysius (Deemed to be University), Mangaluru, Karnataka</div>
+  <ul>
+    <li><strong>CGPA: 8.08 / 10.0</strong></li>
+    <li>Relevant Coursework: Data Structures, Database Management Systems, Machine Learning Fundamentals, Statistical Analysis, Web Technologies</li>
+  </ul>
+
+  <hr>
+
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-list">
+    <p><strong>Programming Languages:</strong> Python, SQL, R, Java, JavaScript, PHP, C</p>
+    <p><strong>ML / Data Science:</strong> Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Predictive Modelling, Feature Engineering</p>
+    <p><strong>AI / RAG:</strong> FAISS Vector Search, FastEmbed, LLM Integration (Groq), Retrieval-Augmented Generation</p>
+    <p><strong>Web Technologies:</strong> HTML5, CSS3, JavaScript, React.js, TypeScript, TailwindCSS, PHP, J2EE, REST APIs, FastAPI, Django REST Framework</p>
+    <p><strong>Databases:</strong> MySQL, SQLite, PostgreSQL (3NF schema design, complex joins, indexing)</p>
+    <p><strong>Tools & Platforms:</strong> Jupyter Notebook, Git, GitHub, GitHub Actions (CI/CD), Docker-ready deployments (Render, Vercel), VS Code</p>
+    <p><strong>Concepts:</strong> Machine Learning, Data Analysis, JWT-based Auth & RBAC Systems, Geospatial Visualisation, Automated Testing (pytest)</p>
+  </div>
+
+  <hr>
+
+  <div class="section-title">Projects</div>
+
+  <div class="item-header">
+    <span>DocMind AI — Production RAG Document Intelligence Platform</span>
+  </div>
+  <div class="item-sub">FastAPI | React.js/TypeScript | FAISS | Groq LLM | JWT Auth — <a href="https://github.com/vivekjpoojary/docmind-ai" target="_blank">github.com/vivekjpoojary/docmind-ai</a></div>
+  <ul>
+    <li>Architected and deployed a full-stack RAG platform (FastAPI + React/TypeScript, live on Render and Vercel) enabling PDF/DOCX/TXT upload and AI-powered Q&A with page-accurate citations.</li>
+    <li>Implemented per-user isolated FAISS vector search with FastEmbed embeddings and Groq LLM integration for low-latency retrieval augmented generation.</li>
+    <li>Built JWT-based auth with refresh-token rotation and rate limiting; validated with 33/33 automated tests passing via GitHub Actions CI.</li>
+  </ul>
+
+  <div class="item-header">
+    <span>PlayPoint — Sports Venue Booking & Analytics Platform</span>
+  </div>
+  <div class="item-sub">React.js | Django REST Framework | SQLite | Python | Scikit-learn — <a href="https://github.com/Vivekjpoojary" target="_blank">github.com/Vivekjpoojary</a></div>
+  <ul>
+    <li>Built a full-stack booking platform for real-time court reservations, supporting three permission tiers via a JWT-based Role-Based Access Control system.</li>
+    <li>Designed a 3NF-compliant relational schema across nine normalized tables, enforcing referential integrity and eliminating redundant data across all modules.</li>
+    <li>Trained a Linear Regression model on historical booking data to predict peak-demand slots, feeding directly into the platform's slot-allocation logic and Matplotlib dashboards.</li>
+  </ul>
+
+  <div class="item-header">
+    <span>IBM Data Science Capstone — Falcon 9 Landing Prediction</span>
+  </div>
+  <div class="item-sub">Python | Pandas | NumPy | Scikit-learn | Matplotlib | Folium</div>
+  <ul>
+    <li>Built an end-to-end pipeline — SpaceX REST API ingestion and web scraping, EDA, feature engineering, and modelling — to predict Falcon 9 first-stage landing outcomes.</li>
+    <li>Benchmarked four classifiers (Logistic Regression, Decision Tree, SVM, KNN); a GridSearchCV-tuned Decision Tree achieved 83.3% accuracy, the best of the set.</li>
+    <li>Built interactive Folium maps to visualise launch-site proximity and surface spatial patterns across historical missions.</li>
+  </ul>
+
+  <hr>
+
+  <div class="section-title">Certifications</div>
+
+  <div class="item-header">
+    <span>IBM Data Science Professional Certificate</span>
+    <span>Aug 2025</span>
+  </div>
+  <div class="item-sub">IBM / Coursera</div>
+  <ul>
+    <li>10-course specialisation covering Python, SQL, data visualisation, and machine learning, capped by an applied capstone spanning the full data science lifecycle.</li>
+  </ul>
+
+  <div class="item-header">
+    <span>Deloitte Technology Virtual Experience Program</span>
+    <span>Mar 2026</span>
+  </div>
+  <div class="item-sub">Forage</div>
+  <ul>
+    <li>Completed hands-on modules in Python-based ETL, IIoT data unification, and a software development proposal for a simulated client engagement (Daikibo Industrials).</li>
+  </ul>
+
+  <hr>
+
+  <div class="section-title">Achievements & Activities</div>
+  <ul>
+    <li><strong>National-Level Wushu & Kung Fu Athlete</strong> — Bronze medal, 16th National Kung-Fu Championship; multiple national-level participations demonstrating sustained discipline under competitive pressure.</li>
+    <li><strong>Class Representative (2024–25)</strong> — Elected student liaison between faculty and peers for a BCA cohort, handling academic communications and scheduling.</li>
+  </ul>
+
+</body>
+</html>
