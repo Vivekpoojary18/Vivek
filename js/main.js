@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSkillFilters();
   initProjectFilters();
   initProjectModal();
-  initContactForm();
 });
 
 /* ==========================================================================
@@ -281,22 +280,8 @@ function initProjectModal() {
 }
 
 /* ==========================================================================
-   7. CONTACT FORM LOGIC (NATIVE FORMSUBMIT + TOAST)
+   7. UTILITIES: TOAST & CLIPBOARD
    ========================================================================== */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  // Visual submit indicator when user submits form
-  form.addEventListener('submit', () => {
-    const btn = form.querySelector('button[type="submit"]');
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = `<i class="bi bi-hourglass-split"></i> Submitting...`;
-    }
-  });
-}
-
 function copyToClipboard(text, label) {
   navigator.clipboard.writeText(text).then(() => {
     showToast(`${label} copied to clipboard!`);
