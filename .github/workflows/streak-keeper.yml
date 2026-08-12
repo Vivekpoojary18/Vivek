@@ -1,0 +1,34 @@
+name: GitHub Green Streak & Portfolio Health Keeper
+
+on:
+  schedule:
+    - cron: '15 18 * * *' # Runs daily at 18:15 UTC (23:45 IST) to ensure daily green streak
+  workflow_dispatch:
+
+jobs:
+  keep-streak-green:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify Portfolio HTML & JS Integrity
+        run: |
+          python3 -c "
+          import os
+          assert os.path.exists('index.html'), 'index.html missing'
+          assert os.path.exists('js/main.js'), 'js/main.js missing'
+          assert os.path.exists('js/github-activity.js'), 'js/github-activity.js missing'
+          print('✅ All core portfolio assets verified successfully!')
+          "
+
+      - name: Run Streak Booster Audit
+        run: |
+          python3 scripts/github_streak_booster.py --check
