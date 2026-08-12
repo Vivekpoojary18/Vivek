@@ -10,7 +10,6 @@ Official web portfolio for **Vivek J Poojary** — IBM Certified Data Science Pr
 
 ## 🚀 Key Features
 
-- **GitHub Activity & Green Streak Monitor:** Real-time contribution heatmap component, streak tracker, and automated GitHub Actions streak keeper workflow.
 - **Generative AI & RAG Showcase:** Features **DocMind AI** — an isolated FAISS vector search platform built with FastAPI, FastEmbed, Groq LLM, and 33/33 passing CI tests.
 - **Full Stack Applications:** Highlights **PlayPoint** (Django REST + 3NF SQLite schema with Linear Regression slot forecasting) and **Immortals Website** (Martial Arts & Sports Portal).
 - **Predictive Data Science:** Benchmarks from the **IBM SpaceX Falcon 9 Capstone** (83.3% accuracy Decision Tree classifier with Folium geospatial maps).
