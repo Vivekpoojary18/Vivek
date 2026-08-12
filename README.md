@@ -1,6 +1,7 @@
 # Vivek J Poojary — Portfolio Website ⚡
 
 [![Live Website](https://img.shields.io/badge/Live_Site-vivek--three--omega.vercel.app-00F0FF?style=for-the-badge&logo=vercel)](https://vivek-three-omega.vercel.app)
+[![GitHub Streak](https://img.shields.io/badge/GitHub_Streak-Active_🔥-22C55E?style=for-the-badge&logo=github)](https://github.com/Vivekjpoojary)
 [![License: MIT](https://img.shields.io/badge/License-MIT-6366F1.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 Official web portfolio for **Vivek J Poojary** — IBM Certified Data Science Practitioner, BCA Graduate (CGPA 8.08 / 10), and Full Stack Developer specializing in Generative AI / RAG platforms, predictive machine learning models, and production web applications.
@@ -9,6 +10,7 @@ Official web portfolio for **Vivek J Poojary** — IBM Certified Data Science Pr
 
 ## 🚀 Key Features
 
+- **GitHub Activity & Green Streak Monitor:** Real-time contribution heatmap component, streak tracker, and automated GitHub Actions streak keeper workflow.
 - **Generative AI & RAG Showcase:** Features **DocMind AI** — an isolated FAISS vector search platform built with FastAPI, FastEmbed, Groq LLM, and 33/33 passing CI tests.
 - **Full Stack Applications:** Highlights **PlayPoint** (Django REST + 3NF SQLite schema with Linear Regression slot forecasting) and **Immortals Website** (Martial Arts & Sports Portal).
 - **Predictive Data Science:** Benchmarks from the **IBM SpaceX Falcon 9 Capstone** (83.3% accuracy Decision Tree classifier with Folium geospatial maps).
@@ -22,6 +24,7 @@ Official web portfolio for **Vivek J Poojary** — IBM Certified Data Science Pr
 
 - **Frontend:** HTML5, CSS3 Glassmorphism, JavaScript ES6+, Bootstrap Icons, Google Fonts (Plus Jakarta Sans, Inter, JetBrains Mono)
 - **Backend / Interactivity:** Client-side HTML5 canvas engine, mailto integration, toast notification system
+- **Automation & Utilities:** Python streak logger CLI (`scripts/github_streak_booster.py`), GitHub Actions workflow (`.github/workflows/streak-keeper.yml`)
 - **Deployment:** Vercel with clean URL routes, asset caching headers, and security rules
 
 ---
@@ -30,5 +33,5 @@ Official web portfolio for **Vivek J Poojary** — IBM Certified Data Science Pr
 
 - **Email:** [vivekjpoojary@gmail.com](mailto:vivekjpoojary@gmail.com)
 - **Phone:** +91 82173 67683
-- **LinkedIn:** [linkedin.com/in/vivekjpoojary](https://linkedin.com/in/vivekjpoojary)
-- **GitHub:** [github.com/vivekjpoojary](https://github.com/vivekjpoojary)
+- **LinkedIn:** [linkedin.com/in/vivekjpoojary](https://www.linkedin.com/in/vivekjpoojary)
+- **GitHub:** [github.com/Vivekjpoojary](https://github.com/Vivekjpoojary)
