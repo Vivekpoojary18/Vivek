@@ -281,10 +281,11 @@ function initProjectModal() {
 }
 
 /* ==========================================================================
-   7. CONTACT FORM (FAILSAFE DIRECT MAILTO LAUNCHER)
+   7. CONTACT FORM (PROFESSIONAL MAILTO ENGINE)
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
@@ -294,14 +295,28 @@ function initContactForm() {
     const email = document.getElementById('user_email').value.trim();
     const message = document.getElementById('user_message').value.trim();
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-    const body = encodeURIComponent(`Hi Vivek,\n\nMy name is ${name} (${email}).\n\n${message}\n\nBest regards,\n${name}`);
+    if (!name || !email || !message) {
+      showToast('Please fill out all fields before submitting.');
+      return;
+    }
 
-    showToast('Opening your mail client to send email to vivekjpoojary@gmail.com...');
+    const subject = encodeURIComponent(`[Portfolio Inquiry] Message from ${name}`);
+    const body = encodeURIComponent(
+      `Hi Vivek,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from Portfolio Website (vivek-three-omega.vercel.app)`
+    );
+
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i class="bi bi-envelope-open-fill"></i> Opening Email App...`;
+
+    showToast('Opening your default email application to send message...');
 
     setTimeout(() => {
       window.location.href = `mailto:vivekjpoojary@gmail.com?subject=${subject}&body=${body}`;
-    }, 400);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+      form.reset();
+    }, 600);
   });
 }
 
